@@ -78,7 +78,7 @@ export default function PageHeader() {
                         href="/"
                         className="rtl:space-x flex items-center space-x-3"
                     >
-                        <div className="h-[85px] w-[100px] bg-lightBrand bg-no-repeat  dark:bg-darkBrand"></div>
+                        <div className="h-[46px] w-[64px] bg-lightBrand bg-no-repeat dark:bg-darkBrand"></div>
                     </Link>
                     <div
                         className="hidden w-full md:block md:w-auto"
@@ -109,26 +109,16 @@ export default function PageHeader() {
                         </NavigationMenu>
                     </div>
 
-                    <div className="hidden gap-x-5 sm:flex md:flex-row">
-                        <div className="">
+                    <div className="hidden gap-x-5 xs:flex md:flex-row">
+                        <div className="xs:hidden sm:flex md:flex lg:flex xl:flex 2xl:flex ">
                             <Button className=" bg-white text-slate-900 ring-2 ring-slate-400 hover:bg-slate-100 hover:ring-4 dark:bg-white dark:text-black">
                                 LOGIN
                             </Button>
                         </div>
-                        <div>
+                        <div className="gap-x-5 xs:flex">
                             <ModeToggle />
                         </div>
                     </div>
-                    {/* <Button
-                        data-collapse-toggle="navbar-default"
-                        type="button"
-                        className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-transparent p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
-                        aria-controls="navbar-default"
-                        aria-expanded="false"
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <SquareMenu className="h-10 w-10" />
-                    </Button> */}
                 </div>
             </nav>
         </>

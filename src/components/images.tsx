@@ -24,4 +24,24 @@ function AnonTalkAI() {
         />
     );
 }
-export { AnonTalkLogo, AnonTalkAI };
+function AnonTalkDarkLogo() {
+    return (
+        <Image
+            src={'/imgs/logo_anontalk_black.png'}
+            alt={'logo anontalk dark'}
+            width="64"
+            height="64"
+        />
+    );
+}
+function AnonTalkLightLogo() {
+    return (
+        <Image
+            src={'/imgs/logo_anontalk_white.png'}
+            alt={'logo anontalk light'}
+            width="64"
+            height="64"
+        />
+    );
+}
+export { AnonTalkLogo, AnonTalkAI, AnonTalkDarkLogo, AnonTalkLightLogo };

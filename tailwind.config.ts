@@ -19,12 +19,31 @@ const config = {
                 '2xl': '1400px',
             },
         },
+        screens: {
+            xs: '375px',
+            // => @media (min-width: 375px) { ... }
+
+            sm: '640px',
+            // => @media (min-width: 640px) { ... }
+
+            md: '768px',
+            // => @media (min-width: 768px) { ... }
+
+            lg: '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            xl: '1280px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1536px',
+            // => @media (min-width: 1536px) { ... }
+        },
         extend: {
             backgroundImage: {
                 darkBg: "url('/imgs/darkBg.png')",
                 lightBg: "url('/imgs/lightBg.png')",
-                darkBrand: "url('/imgs/logo_anontalk_white.png')",
-                lightBrand: "url('/imgs/logo_anontalk_black.png')",
+                darkBrand: "url('/imgs/anontalk_logo_light.svg')",
+                lightBrand: "url('/imgs/anontalk_logo_dark.svg')",
             },
             fontFamily: {
                 sans: ['var(--font-sans)', ...fontFamily.sans],

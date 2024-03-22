@@ -33,10 +33,10 @@ export default async function Home() {
             : 'You are not connected to the database.'
     );
     return (
-        <div className="xs:p-5 flex min-h-full flex-col items-center justify-between gap-y-10 sm:p-5 2xl:px-20">
+        <div className="flex min-h-full flex-col items-center justify-between gap-y-10 xs:p-5 sm:p-5 2xl:px-20">
             <div className="mx-auto flex h-full w-full gap-x-4">
-                <div className="xs:w-full min-h-20 p-4 sm:w-full sm:justify-center md:w-[60%] lg:w-[60%] xl:w-[50%]">
-                    <header className="justify-item-center flex h-full w-full flex-col justify-center gap-y-4 p-4 text-slate-900 dark:text-white">
+                <div className="min-h-20 p-4 xs:w-full sm:w-full sm:justify-center md:w-[60%] lg:w-[60%] xl:w-[50%]">
+                    <header className="justify-item-center flex h-full w-full flex-col justify-center gap-y-4 p-4 text-slate-900 dark:text-white xs:text-center sm:text-left md:text-left lg:text-left xl:text-left 2xl:text-left ">
                         <div className="text-5xl font-bold xl:text-7xl 2xl:text-7xl">
                             ANON TALK
                         </div>
@@ -48,7 +48,7 @@ export default async function Home() {
                             elit. Voluptate voluptatum tempora fugit eius quasi
                             quis quisquam sapiente illo, possimus quibusdam.
                         </div>
-                        <div className="mt-5 flex gap-x-5 lg:flex-row">
+                        <div className="mt-5 flex gap-x-5 gap-y-3 bg-transparent xs:flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
                             <Button className="bg-slate-900 text-white ring-2 ring-slate-700 hover:bg-slate-100 hover:text-slate-900 hover:ring-4 hover:ring-slate-700 dark:bg-white dark:text-black dark:ring-1 dark:hover:bg-transparent dark:hover:text-white dark:hover:ring-4 dark:hover:ring-slate-700">
                                 Mulai Dengan Cepat
                                 <MoveRight className="ml-2 h-4 w-4" />
@@ -70,7 +70,7 @@ export default async function Home() {
             </div>
             <div className="mx-auto flex h-full w-full justify-center gap-x-4 ">
                 <Link href="#content1">
-                    <ChevronDown className="sm:h-13 sm:w-13 h-16 w-16 animate-bounce" />
+                    <ChevronDown className="sm:h-13 sm:w-13 animate-bounce xs:h-10 xs:w-10 md:h-16 md:w-16 lg:h-16 lg:w-16 xl:h-16 xl:w-16 2xl:h-16 2xl:w-16 " />
                 </Link>
             </div>
 
