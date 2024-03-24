@@ -1,11 +1,9 @@
 'use client';
 
-import * as React from 'react';
 import Link from 'next/link';
-import { AnonTalkLogo } from './images';
-import { SquareMenu } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { AspectRatio } from '@radix-ui/react-aspect-ratio';
+import { EllipsisVertical } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 
 import {
     NavigationMenu,
@@ -16,9 +14,17 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
 import { Button } from './ui/button';
 import { ModeToggle } from './mode-toggle';
-import { Icons } from './icons';
+import { Separator } from '@radix-ui/react-dropdown-menu';
 
 const components: {
     id: number;
@@ -33,7 +39,7 @@ const components: {
     {
         id: 2,
         title: 'ABOUT',
-        href: '/#',
+        href: '/about',
     },
     {
         id: 3,
@@ -70,10 +76,27 @@ const ListItem = React.forwardRef<
 ListItem.displayName = 'ListItem';
 
 export default function PageHeader() {
+    const [nav, setNav] = useState(false);
+
+    const handleResize = () => {
+        if (window.innerWidth >= 768) {
+            // Assuming 768px is your md breakpoint
+            setNav(false);
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        // Clean up the event listener
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     return (
         <>
             <nav className="border-gray-200 p-5 dark:bg-transparent">
-                <div className="mx-auto flex flex-wrap items-center justify-between 2xl:px-20">
+                <div className="mx-auto flex flex-wrap items-center justify-between px-0 2xl:px-20">
                     <Link
                         href="/"
                         className="rtl:space-x flex items-center space-x-3"
@@ -109,14 +132,53 @@ export default function PageHeader() {
                         </NavigationMenu>
                     </div>
 
-                    <div className="hidden gap-x-5 xs:flex md:flex-row">
+                    <div className="hidden gap-x-2 px-0 xs:flex xs:flex-row xs:items-center xs:justify-center md:flex-row md:items-center md:justify-center">
                         <div className="xs:hidden sm:flex md:flex lg:flex xl:flex 2xl:flex ">
-                            <Button className=" bg-white text-slate-900 ring-2 ring-slate-400 hover:bg-slate-100 hover:ring-4 dark:bg-white dark:text-black">
+                            <Button
+                                size="custom"
+                                className=" bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-100 hover:ring-4 dark:bg-white dark:text-black"
+                            >
                                 LOGIN
                             </Button>
                         </div>
-                        <div className="gap-x-5 xs:flex">
+                        <div className="flex">
                             <ModeToggle />
+                        </div>
+                        <div className="flex md:hidden lg:hidden xl:hidden 2xl:hidden">
+                            <DropdownMenu>
+                                <DropdownMenuTrigger asChild>
+                                    <Button
+                                        variant="outline"
+                                        size="icon"
+                                        className=" focus:dark-ring-blue-400 h-10 w-8 items-center justify-center rounded dark:ring-slate-100 focus:dark:ring-4"
+                                    >
+                                        <EllipsisVertical />
+                                    </Button>
+                                </DropdownMenuTrigger>
+                                <DropdownMenuContent
+                                    align="end"
+                                    className="px-4 py-5"
+                                >
+                                    {components.map((components) => (
+                                        <DropdownMenuItem key={components.id}>
+                                            <Link href={components.href}>
+                                                <span className="mx-3 text-lg hover:underline focus:underline">
+                                                    {components.title}
+                                                </span>
+                                            </Link>
+                                        </DropdownMenuItem>
+                                    ))}
+                                    <Separator className="my-2" />
+                                    <DropdownMenuItem className="flex sm:hidden md:hidden lg:hidden xl:flex 2xl:flex">
+                                        <Button
+                                            size="custom"
+                                            className=" bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-100 hover:ring-4 dark:bg-white dark:text-black"
+                                        >
+                                            LOGIN
+                                        </Button>
+                                    </DropdownMenuItem>
+                                </DropdownMenuContent>
+                            </DropdownMenu>
                         </div>
                     </div>
                 </div>
