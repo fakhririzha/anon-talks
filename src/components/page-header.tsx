@@ -1,9 +1,9 @@
 'use client';
 
-import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { EllipsisVertical } from 'lucide-react';
-import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 
 import {
     NavigationMenu,
@@ -22,9 +22,9 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import { Button } from './ui/button';
-import { ModeToggle } from './mode-toggle';
 import { Separator } from '@radix-ui/react-dropdown-menu';
+import { ModeToggle } from './mode-toggle';
+import { Button } from './ui/button';
 
 const components: {
     id: number;
@@ -136,7 +136,7 @@ export default function PageHeader() {
                         <div className="xs:hidden sm:flex md:flex lg:flex xl:flex 2xl:flex ">
                             <Button
                                 size="custom"
-                                className=" bg-white text-slate-900 ring-1 ring-slate-200 hover:bg-slate-100 hover:ring-4 dark:bg-white dark:text-black"
+                                className=" bg-white text-slate-900 ring-1 ring-slate-400 duration-300 hover:bg-slate-100 dark:bg-white dark:text-black dark:hover:bg-slate-300"
                             >
                                 LOGIN
                             </Button>
